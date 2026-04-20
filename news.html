@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>News — Data Bias</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav class="nav">
+  <a href="index.html" class="nav-logo">Data<span>Bias</span></a>
+  <div class="nav-links">
+    <a href="catalogue.html">Catalogue</a>
+    <a href="about.html">About</a>
+    <a href="news.html" style="color:var(--c-purple);font-weight:600">News</a>
+    <a href="catalogue.html" class="nav-cta">Submit Profile →</a>
+  </div>
+  <button class="nav-hamburger" id="hamburger">☰</button>
+</nav>
+<div class="nav-mobile" id="mobileNav">
+  <a href="catalogue.html">Catalogue</a>
+  <a href="about.html">About</a>
+  <a href="news.html">News</a>
+</div>
+
+<div class="page-hero">
+  <p class="section-eyebrow">Updates</p>
+  <h1>News & Events</h1>
+  <p>Research highlights, field updates, and Data Bias community news.</p>
+</div>
+
+<div class="news-grid">
+
+  <article class="news-card">
+    <p class="news-date">APRIL 2026 · LAUNCH</p>
+    <h3>Data Bias is Live — Join the Network</h3>
+    <p>The database is now open. We launched with 12 researcher profiles spanning AI safety, governance, and algorithmic justice across 10 countries. Submit your profile or nominate a researcher you think should be included.</p>
+  </article>
+
+  <article class="news-card">
+    <p class="news-date">MARCH 2026 · EVENT</p>
+    <h3>First Online Gathering: 60 minutes, Global</h3>
+    <p>Our inaugural online meetup brought together 28 researchers and practitioners. Topics included funding gaps, Global South representation in AI safety, and what a community database actually needs to be useful.</p>
+  </article>
+
+  <article class="news-card">
+    <p class="news-date">MARCH 2026 · RESEARCH</p>
+    <h3>DAIR Institute Releases New Report on Participatory AI</h3>
+    <p>Timnit Gebru's DAIR Institute has published new research on participatory approaches to AI development. Several Data Bias researchers contributed to the work. Full report linked on their site.</p>
+  </article>
+
+  <article class="news-card">
+    <p class="news-date">FEBRUARY 2026 · FUNDING</p>
+    <h3>Funding Brief Published: What Data Bias Needs</h3>
+    <p>We've published a short funding brief outlining what year-one support would enable — including researcher stipends, hosting, and a part-time coordinator. Available on request.</p>
+  </article>
+
+  <article class="news-card">
+    <p class="news-date">JANUARY 2026 · READING</p>
+    <h3>Reading List: AI Governance from the Global South</h3>
+    <p>A curated list of papers, books, and articles by women of colour examining AI governance outside Western contexts. Includes work from Kenya, India, Nigeria, and Brazil. Updated quarterly.</p>
+  </article>
+
+  <article class="news-card">
+    <p class="news-date">COMING SOON · EVENT</p>
+    <h3>Summer 2026: Data Bias Virtual Conference</h3>
+    <p>We're planning our first virtual conference for summer 2026. Two hours, five researchers, live Q&A. Researchers interested in speaking — <a href="mailto:hello@databias.org" style="color:var(--c-purple)">get in touch early</a>.</p>
+  </article>
+
+</div>
+
+<section class="section cta-section">
+  <div class="cta-inner">
+    <div class="cta-text">
+      <p class="section-eyebrow">Stay Connected</p>
+      <h2>Sign up for updates</h2>
+      <p>Get quarterly newsletters with new researcher profiles, field news, event invitations, and funding opportunities. No spam. Unsubscribe any time.</p>
+      <a href="mailto:hello@databias.org?subject=Newsletter%20Signup" class="btn-primary">Join the Mailing List →</a>
+    </div>
+    <div class="cta-quote">
+      <blockquote>
+        "The goal is to make research in the field easier and create a platform to educate people."
+        <cite>— DataBias original proposal, KCL, 2022</cite>
+      </blockquote>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-logo">Data<span>Bias</span></div>
+    <p class="footer-tagline">A free global database of women of colour in AI safety, governance & algorithmic justice.</p>
+    <div class="footer-links">
+      <a href="catalogue.html">Catalogue</a>
+      <a href="about.html">About</a>
+      <a href="news.html">News</a>
+      <a href="mailto:hello@databias.org">Contact</a>
+    </div>
+    <p class="footer-copy">Built with the Black Women Best Framework · databias.org · 2026</p>
+  </div>
+</footer>
+<script>
+  document.getElementById('hamburger').addEventListener('click',()=>document.getElementById('mobileNav').classList.toggle('open'));
+</script>
+</body>
+</html>

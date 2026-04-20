@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Catalogue — Data Bias</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav class="nav">
+  <a href="index.html" class="nav-logo">Data<span>Bias</span></a>
+  <div class="nav-links">
+    <a href="catalogue.html" style="color:var(--c-purple);font-weight:600">Catalogue</a>
+    <a href="about.html">About</a>
+    <a href="news.html">News</a>
+    <a href="#submit" class="nav-cta">Submit Profile →</a>
+  </div>
+  <button class="nav-hamburger" id="hamburger">☰</button>
+</nav>
+<div class="nav-mobile" id="mobileNav">
+  <a href="catalogue.html">Catalogue</a>
+  <a href="about.html">About</a>
+  <a href="news.html">News</a>
+</div>
+
+<div class="page-hero">
+  <p class="section-eyebrow">The Database</p>
+  <h1>Researcher Catalogue</h1>
+  <p>Women of colour working in AI safety, governance, and algorithmic justice — from across the globe.</p>
+</div>
+
+<div class="filter-bar">
+  <span class="filter-label">FILTER BY</span>
+  <button class="filter-btn active" onclick="filterCards('all', this)">All</button>
+  <button class="filter-btn" onclick="filterCards('ai-safety', this)">AI Safety</button>
+  <button class="filter-btn" onclick="filterCards('governance', this)">AI Governance</button>
+  <button class="filter-btn" onclick="filterCards('alg-justice', this)">Alg. Justice</button>
+  <button class="filter-btn" onclick="filterCards('uk', this)">UK-based</button>
+  <button class="filter-btn" onclick="filterCards('africa', this)">Africa</button>
+  <input class="search-input" type="text" placeholder="Search researchers..." id="searchInput" oninput="searchCards(this.value)">
+</div>
+
+<div class="catalogue-grid">
+  <div class="researcher-grid" id="catalogueGrid">
+
+    <article class="researcher-card" data-area="alg-justice" data-region="usa" data-search="safiya umoja noble algorithms oppression UCLA search bias race">
+      <div class="rc-header">
+        <div class="rc-avatar" style="background:var(--c-gold-light);color:var(--c-gold)">SN</div>
+        <div class="rc-tag alg-justice-tag">Alg. Justice</div>
+      </div>
+      <h3 class="rc-name">Safiya Umoja Noble</h3>
+      <p class="rc-role">Professor, UCLA</p>
+      <p class="rc-region">🌎 USA</p>
+      <p class="rc-bio">Author of <em>Algorithms of Oppression</em>. Exposes how search engines and AI systems encode racial and gender bias. Foundational voice in tech criticism and Black feminist scholarship.</p>
+      <div class="rc-tags"><span>Search Bias</span><span>Race & Tech</span><span>Black Feminism</span></div>
+    </article>
+
+    <article class="researcher-card" data-area="ai-safety" data-region="usa ethiopia" data-search="timnit gebru DAIR ethics bias dataset documentation NeurIPS">
+      <div class="rc-header">
+        <div class="rc-avatar" style="background:var(--c-pink-light)">TG</div>
+        <div class="rc-tag ai-safety-tag">AI Safety</div>
+      </div>
+      <h3 class="rc-name">Timnit Gebru</h3>
+      <p class="rc-role">Founder, DAIR Institute</p>
+      <p class="rc-region">🌍 Ethiopia / USA</p>
+      <p class="rc-bio">Pioneer in AI ethics. Co-authored foundational Datasheets for Datasets. Founded DAIR to centre community-based AI research after her high-profile departure from Google.</p>
+      <div class="rc-tags"><span>AI Ethics</span><span>Dataset Auditing</span><span>Fairness</span></div>
+    </article>
+
+    <article class="researcher-card" data-area="alg-justice" data-region="usa ghana" data-search="joy buolamwini algorithmic justice league facial recognition bias Gender Shades MIT">
+      <div class="rc-header">
+        <div class="rc-avatar" style="background:var(--c-teal-light);color:var(--c-teal)">JB</div>
+        <div class="rc-tag alg-justice-tag">Alg. Justice</div>
+      </div>
+      <h3 class="rc-name">Joy Buolamwini</h3>
+      <p class="rc-role">Founder, Algorithmic Justice League</p>
+      <p class="rc-region">🌍 Ghana / USA</p>
+      <p class="rc-bio">Her Gender Shades research exposed racial and gender disparities in commercial facial analysis AI. Author of <em>Unmasking AI</em>. Testified before US Congress on AI accountability.</p>
+      <div class="rc-tags"><span>Facial Recognition</span><span>AI Accountability</span><span>Policy</span></div>
+    </article>
+
+    <article class="researcher-card" data-area="governance" data-region="usa nigeria" data-search="deborah raji AI auditing accountability Mozilla Berkeley evaluation">
+      <div class="rc-header">
+        <div class="rc-avatar" style="background:var(--c-purple-light)">DR</div>
+        <div class="rc-tag governance-tag">AI Governance</div>
+      </div>
+      <h3 class="rc-name">Deborah Raji</h3>
+      <p class="rc-role">Mozilla Fellow / UC Berkeley</p>
+      <p class="rc-region">🌍 Nigeria / USA</p>
+      <p class="rc-bio">Pioneered AI auditing methodology. Exposed failures of commercial AI systems in deployment. Her work directly shaped Amazon and IBM pulling their facial recognition products.</p>
+      <div class="rc-tags"><span>AI Auditing</span><span>Accountability</span><span>Model Evaluation</span></div>
+    </article>
+
+    <article class="researcher-card" data-area="governance" data-region="usa india" data-search="amba kak AI Now Institute governance policy accountability power">
+      <div class="rc-header">
+        <div class="rc-avatar" style="background:var(--c-gold-light);color:var(--c-gold)">AK</div>
+        <div class="rc-tag governance-tag">AI Governance</div>
+      </div>
+      <h3 class="rc-name">Amba Kak</h3>
+      <p class="rc-role">Co-Executive Director, AI Now Institute</p>
+      <p class="rc-region">🌏 India / USA</p>
+      <p class="rc-bio">Ensures AI systems are accountable to the public rather than corporate interests. Focuses on policy reform, regulation, and structural analysis of AI power.</p>
+      <div class="rc-tags"><span>AI Policy</span><span>Governance</span><span>Power</span></div>
+    </article>
+
+    <article class="researcher-card" data-area="alg-justice" data-region="usa ethiopia" data-search="rediet abebe inequality mechanism design poverty Berkeley AI">
+      <div class="rc-header">
+        <div class="rc-avatar" style="background:var(--c-pink-light)">RA</div>
+        <div class="rc-tag alg-justice-tag">Alg. Justice</div>
+      </div>
+      <h3 class="rc-name">Rediet Abebe</h3>
+      <p class="rc-role">Assistant Professor, UC Berkeley</p>
+      <p class="rc-region">🌍 Ethiopia / USA</p>
+      <p class="rc-bio">Works on AI and inequality, mechanism design and poverty. Co-founded Black in AI. Research examines how computational tools can be applied to improve equity.</p>
+      <div class="rc-tags"><span>AI & Inequality</span><span>Mechanism Design</span><span>Global South</span></div>
+    </article>
+
+    <article class="researcher-card" data-area="alg-justice" data-region="ireland ethiopia" data-search="abeba birhane Mozilla cognitive science dataset values ML audit">
+      <div class="rc-header">
+        <div class="rc-avatar" style="background:var(--c-teal-light);color:var(--c-teal)">AB</div>
+        <div class="rc-tag alg-justice-tag">Alg. Justice</div>
+      </div>
+      <h3 class="rc-name">Abeba Birhane</h3>
+      <p class="rc-role">Mozilla Fellow / Researcher</p>
+      <p class="rc-region">🌍 Ethiopia / Ireland</p>
+      <p class="rc-bio">Works at the intersection of cognitive science and ML. Known for auditing large datasets for harmful content and examining the values embedded in ML systems.</p>
+      <div class="rc-tags"><span>Dataset Auditing</span><span>ML Values</span><span>Cognitive Science</span></div>
+    </article>
+
+    <article class="researcher-card" data-area="alg-justice" data-region="uk" data-search="temi lasade-anderson King's College London digital intimacy Black women data UK">
+      <div class="rc-header">
+        <div class="rc-avatar" style="background:var(--c-purple-light)">TL</div>
+        <div class="rc-tag alg-justice-tag">Alg. Justice</div>
+      </div>
+      <h3 class="rc-name">Temi Lasade-Anderson</h3>
+      <p class="rc-role">PhD Researcher, King's College London</p>
+      <p class="rc-region">🇬🇧 UK</p>
+      <p class="rc-bio">Researching Black women's digital intimacy and online experiences in the UK context. Examines how platforms shape and constrain Black women's digital lives.</p>
+      <div class="rc-tags"><span>Digital Intimacy</span><span>Race & Data</span><span>UK</span></div>
+    </article>
+
+    <article class="researcher-card" data-area="governance" data-region="usa nigeria" data-search="mutale nkonde AI People civil rights algorithmic discrimination Zambia">
+      <div class="rc-header">
+        <div class="rc-avatar" style="background:var(--c-gold-light);color:var(--c-gold)">MN</div>
+        <div class="rc-tag governance-tag">AI Governance</div>
+      </div>
+      <h3 class="rc-name">Mutale Nkonde</h3>
+      <p class="rc-role">CEO, AI for the People</p>
+      <p class="rc-region">🌍 Zambia / USA</p>
+      <p class="rc-bio">Advocates for civil rights protections in the age of AI. Works at the intersection of racial justice and technology policy. Founded AI for the People to address algorithmic discrimination.</p>
+      <div class="rc-tags"><span>Civil Rights</span><span>AI Policy</span><span>Discrimination</span></div>
+    </article>
+
+    <article class="researcher-card" data-area="governance" data-region="africa kenya" data-search="nanjala nyabola Kenya author technology democracy digital colonialism Africa">
+      <div class="rc-header">
+        <div class="rc-avatar" style="background:var(--c-teal-light);color:var(--c-teal)">NN</div>
+        <div class="rc-tag governance-tag">AI Governance</div>
+      </div>
+      <h3 class="rc-name">Nanjala Nyabola</h3>
+      <p class="rc-role">Author / Political Analyst</p>
+      <p class="rc-region">🌍 Kenya</p>
+      <p class="rc-bio">Author of <em>Digital Democracy, Analogue Politics</em>. Analyses how technology intersects with democracy and governance in East Africa. Critical voice on digital colonialism.</p>
+      <div class="rc-tags"><span>Digital Democracy</span><span>Africa</span><span>Colonialism</span></div>
+    </article>
+
+    <article class="researcher-card" data-area="governance" data-region="india uk" data-search="vidushi marda Article 19 AI surveillance human rights law India">
+      <div class="rc-header">
+        <div class="rc-avatar" style="background:var(--c-pink-light)">VM</div>
+        <div class="rc-tag governance-tag">AI Governance</div>
+      </div>
+      <h3 class="rc-name">Vidushi Marda</h3>
+      <p class="rc-role">Researcher, Article 19</p>
+      <p class="rc-region">🌏 India / UK</p>
+      <p class="rc-bio">Works on AI policy, surveillance, and human rights law. Research examines how AI enables government surveillance and the legal frameworks needed to protect rights.</p>
+      <div class="rc-tags"><span>AI & Law</span><span>Surveillance</span><span>Human Rights</span></div>
+    </article>
+
+    <article class="researcher-card" data-area="alg-justice" data-region="usa bangladesh" data-search="rumman chowdhury Humane Intelligence AI auditing bias responsible evaluation">
+      <div class="rc-header">
+        <div class="rc-avatar" style="background:var(--c-purple-light)">RC</div>
+        <div class="rc-tag alg-justice-tag">Alg. Justice</div>
+      </div>
+      <h3 class="rc-name">Rumman Chowdhury</h3>
+      <p class="rc-role">CEO, Humane Intelligence</p>
+      <p class="rc-region">🌏 Bangladesh / USA</p>
+      <p class="rc-bio">Expert in responsible AI and bias evaluation. Formerly Global Lead for Responsible AI at Accenture. Founded Humane Intelligence to advance AI auditing practices.</p>
+      <div class="rc-tags"><span>Responsible AI</span><span>Bias Evaluation</span><span>Auditing</span></div>
+    </article>
+
+  </div>
+</div>
+
+<!-- SUBMIT SECTION -->
+<section class="section cta-section" id="submit">
+  <div class="cta-inner">
+    <div class="cta-text">
+      <p class="section-eyebrow">Join the Database</p>
+      <h2>Submit your profile</h2>
+      <p>Are you a woman of colour working in AI safety, AI governance, or algorithmic justice? We'd love to include you. It takes about 10 minutes and is completely free.</p>
+      <p style="font-size:0.88rem;color:var(--c-light);margin-bottom:1.5rem">We will always ask for your consent before publishing anything. You can update or remove your profile at any time.</p>
+      <a href="mailto:hello@databias.org?subject=Profile%20Submission" class="btn-primary">Email Us to Submit →</a>
+    </div>
+    <div class="cta-quote">
+      <blockquote>
+        "There is no established website that specialises in this area — creating a need for a platform like this, especially outside the USA."
+        <cite>— DataBias original proposal, 2022</cite>
+      </blockquote>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-logo">Data<span>Bias</span></div>
+    <p class="footer-tagline">A free global database of women of colour in AI safety, governance & algorithmic justice.</p>
+    <div class="footer-links">
+      <a href="catalogue.html">Catalogue</a>
+      <a href="about.html">About</a>
+      <a href="news.html">News</a>
+      <a href="mailto:hello@databias.org">Contact</a>
+    </div>
+    <p class="footer-copy">Built with the Black Women Best Framework · databias.org · 2026</p>
+  </div>
+</footer>
+
+<script>
+  const ham = document.getElementById('hamburger');
+  const mob = document.getElementById('mobileNav');
+  ham.addEventListener('click', () => mob.classList.toggle('open'));
+
+  function filterCards(area, btn) {
+    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    document.querySelectorAll('.researcher-card').forEach(card => {
+      if (area === 'all') { card.style.display = ''; return; }
+      const cardArea = card.dataset.area || '';
+      const cardRegion = card.dataset.region || '';
+      const match = cardArea === area || cardRegion.includes(area);
+      card.style.display = match ? '' : 'none';
+    });
+  }
+
+  function searchCards(val) {
+    const q = val.toLowerCase();
+    document.querySelectorAll('.researcher-card').forEach(card => {
+      const text = (card.dataset.search || '') + card.textContent.toLowerCase();
+      card.style.display = text.includes(q) ? '' : 'none';
+    });
+  }
+</script>
+</body>
+</html>
