@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nafisah Animashaun — Data Bias</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<style>
+  .founder-hero { display:grid; grid-template-columns:320px 1fr; gap:5rem; padding:5rem 5%; align-items:start; }
+  .founder-photo-block { position:sticky; top:90px; }
+  .founder-avatar { width:100%; aspect-ratio:4/5; border-radius:20px; background:linear-gradient(145deg,var(--c-purple-light) 0%,var(--c-pink-light) 60%,var(--c-teal-light) 100%); display:flex; align-items:center; justify-content:center; font-family:var(--font-display); font-size:5rem; font-weight:900; color:var(--c-purple); margin-bottom:1.2rem; overflow:hidden; }
+  .founder-avatar img { width:100%; height:100%; object-fit:cover; }
+  .fq-item { display:flex; align-items:flex-start; gap:0.6rem; font-size:0.85rem; color:var(--c-mid); margin-bottom:0.5rem; line-height:1.4; }
+  .fq-item strong { color:var(--c-dark); white-space:nowrap; }
+  .founder-links { display:flex; flex-direction:column; gap:0.6rem; margin-top:1rem; }
+  .founder-link { display:flex; align-items:center; gap:0.5rem; padding:0.55rem 1rem; border:1.5px solid var(--c-border); border-radius:50px; font-size:0.82rem; font-weight:500; color:var(--c-mid); transition:all 0.2s; justify-content:center; }
+  .founder-link:hover { border-color:var(--c-purple); color:var(--c-purple); background:var(--c-purple-light); }
+  .founder-link.primary { background:var(--c-purple); color:white; border-color:var(--c-purple); }
+  .founder-link.primary:hover { opacity:0.9; }
+
+  .fc h2 { font-size:1.6rem; margin-bottom:0.8rem; margin-top:2.5rem; }
+  .fc h2:first-of-type { margin-top:0; }
+  .fc p { color:var(--c-mid); line-height:1.8; margin-bottom:1rem; font-size:0.97rem; }
+  .fc p.lead { font-size:1.1rem; color:var(--c-dark); font-family:var(--font-display); font-style:italic; line-height:1.65; }
+
+  .career-grid { display:grid; grid-template-columns:1fr 1fr; gap:1rem; margin:1.5rem 0; }
+  .career-card { background:white; border:1px solid var(--c-border); border-radius:var(--radius); padding:1.1rem 1.2rem; }
+  .cc-date { font-family:var(--font-mono); font-size:0.67rem; color:var(--c-pink); letter-spacing:0.06em; margin-bottom:0.3rem; }
+  .cc-role { font-size:0.92rem; font-weight:600; color:var(--c-dark); margin-bottom:0.15rem; line-height:1.3; }
+  .cc-org { font-size:0.8rem; color:var(--c-mid); }
+  .cc-tag { display:inline-block; margin-top:0.45rem; font-family:var(--font-mono); font-size:0.63rem; letter-spacing:0.05em; padding:0.15rem 0.5rem; border-radius:50px; }
+  .tg { background:var(--c-purple-light); color:var(--c-purple); }
+  .tr { background:var(--c-teal-light); color:var(--c-teal); }
+  .tp { background:var(--c-pink-light); color:var(--c-pink); }
+  .ts { background:#FEF3C7; color:#92400E; }
+  .cc-body { font-size:0.81rem; color:var(--c-mid); margin-top:0.6rem; line-height:1.6; }
+
+  .inspo-block { background:white; border:1px solid var(--c-border); border-left:4px solid var(--c-purple); border-radius:0 var(--radius) var(--radius) 0; padding:1.1rem 1.3rem; margin-bottom:0.9rem; }
+  .inspo-block:nth-child(2){border-left-color:var(--c-pink);}
+  .inspo-block:nth-child(3){border-left-color:var(--c-teal);}
+  .inspo-block:nth-child(4){border-left-color:#B45309;}
+  .inspo-block:nth-child(5){border-left-color:var(--c-purple);}
+  .inspo-block:nth-child(6){border-left-color:var(--c-pink);}
+  .inspo-block h4 { font-size:0.97rem; margin-bottom:0.25rem; }
+  .inspo-block .ibw { font-size:0.78rem; color:var(--c-pink); font-weight:600; margin-bottom:0.4rem; }
+  .inspo-block p { font-size:0.84rem; color:var(--c-mid); line-height:1.6; margin:0; }
+
+  .pivot { background:var(--c-dark); color:white; border-radius:var(--radius); padding:1.6rem 1.8rem; margin:1.8rem 0; }
+  .pivot p { color:rgba(255,255,255,0.78); margin:0; line-height:1.78; font-size:0.95rem; }
+  .pivot p strong { color:white; }
+
+  @media(max-width:900px){
+    .founder-hero{grid-template-columns:1fr;} .founder-photo-block{position:static;} .founder-avatar{max-width:260px;} .career-grid{grid-template-columns:1fr;}
+  }
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <a href="index.html" class="nav-logo">Data<span>Bias</span></a>
+  <div class="nav-links">
+    <a href="catalogue.html">Catalogue</a>
+    <a href="resources.html">Resources</a>
+    <a href="about.html">About</a>
+    <a href="founder.html" style="color:var(--c-purple);font-weight:600">Founder</a>
+    <a href="catalogue.html" class="nav-cta">Submit Profile →</a>
+  </div>
+  <button class="nav-hamburger" id="hamburger">☰</button>
+</nav>
+<div class="nav-mobile" id="mobileNav">
+  <a href="catalogue.html">Catalogue</a>
+  <a href="resources.html">Resources</a>
+  <a href="about.html">About</a>
+  <a href="founder.html">Founder</a>
+</div>
+
+<section class="founder-hero">
+
+  <!-- LEFT COLUMN -->
+  <div class="founder-photo-block">
+    <div class="founder-avatar">NA
+      <!-- To add your photo: replace "NA" with <img src="nafisah.jpg" alt="Nafisah Animashaun"> -->
+    </div>
+    <div style="margin-bottom:1rem">
+      <div class="fq-item">📍 <span><strong>Berlin, Germany</strong></span></div>
+      <div class="fq-item">🎓 <span><strong>MPP</strong> Hertie School · <strong>MA Distinction</strong> KCL</span></div>
+      <div class="fq-item">🔬 <span>AI Governance & Policy Implementation</span></div>
+      <div class="fq-item">🌍 <span>Mercatus Center · SAIGE Incubator · TU Berlin · Hertie × IPAI</span></div>
+    </div>
+    <div class="founder-links">
+      <a href="https://www.linkedin.com/in/nafisah-a-animashaun/" target="_blank" class="founder-link primary">LinkedIn →</a>
+      <a href="mailto:nafisahanimashaun24@gmail.com" class="founder-link">✉ nafisahanimashaun24@gmail.com</a>
+      <a href="mailto:hello@databias.org" class="founder-link">✉ hello@databias.org</a>
+    </div>
+  </div>
+
+  <!-- RIGHT COLUMN -->
+  <div class="fc">
+    <p class="section-eyebrow">The Founder</p>
+    <h1 style="font-family:var(--font-display);font-size:clamp(2rem,4vw,3rem);font-weight:900;line-height:1.1;margin-bottom:0.3rem">Nafisah Animashaun</h1>
+    <p style="color:var(--c-pink);font-weight:600;font-size:1rem;margin-bottom:0.2rem">Researcher · AI Governance & Policy Implementation</p>
+    <p style="font-family:var(--font-mono);font-size:0.73rem;color:var(--c-light);letter-spacing:0.05em;margin-bottom:2rem">Hertie School · Mercatus Center · SAIGE · Scale AI · Fleetwood Strategy · formerly KCL</p>
+
+    <p class="lead">DataBias started as a question during my MA at King's College London: why was it so difficult to find Black women and gender-non-conforming researchers working on AI outside the United States?</p>
+
+    <p>The answer wasn't a lack of work. It was a lack of infrastructure. You had to already know the names, already be in the right rooms, already have the network. That didn't sit right with me — so I decided to build something that made that work visible.</p>
+
+    <p>I'm a researcher working at the intersection of AI governance, digital culture, and algorithmic accountability. My work focuses on how data systems shape power: who gets seen, who gets left out, and how those dynamics get reproduced at scale in the institutions, platforms, and policies we build around AI.</p>
+
+    <div class="pivot">
+      <p><strong>I didn't start here.</strong> I spent years working in marketing and arts and culture in the UK — a world I loved, and one I'm glad I had. But the researchers and scholars whose work lives in DataBias's catalogue changed my trajectory. Reading <em>Algorithms of Oppression</em>. Watching the Gender Shades results land. Following Timnit Gebru's refusal to be silenced by one of the most powerful companies in the world. Realising the questions I cared most about were the ones these women were already asking — rigorously, bravely, and often at personal cost. So I followed them into this field. This database is, in part, my way of saying thank you for that.</p>
+    </div>
+
+    <h2>What I'm working on now</h2>
+    <p>I'm currently an MPP student at the Hertie School in Berlin, focused on digital regulation, platform governance, and ethical technology policy. Alongside my studies I hold several research and policy roles — all oriented around the same question: how do we design AI governance that actually works in practice, not just in theory?</p>
+
+    <div class="career-grid">
+
+      <div class="career-card">
+        <p class="cc-date">APR 2026 – JUL 2026 · ONGOING</p>
+        <p class="cc-role">AI Safety Germany (SAIGE) Incubator — Mentee</p>
+        <p class="cc-org">AI Governance & Policy Track</p>
+        <span class="cc-tag ts">AI Safety</span>
+        <p class="cc-body">Selected for a competitive national incubator on AI safety and risk analysis. Researching AI harm rates in Germany using adapted epidemiological methods — developing policy metrics that translate technical analysis into actionable guidance for policymakers.</p>
+      </div>
+
+      <div class="career-card">
+        <p class="cc-date">FEB 2026 – PRESENT</p>
+        <p class="cc-role">Research Assistant — Public Sector AI Adoption</p>
+        <p class="cc-org">Hertie School × Possible × IPAI · Berlin</p>
+        <span class="cc-tag tg">Governance</span>
+        <p class="cc-body">Comparative policy research on AI adoption across local governments in Germany and the Global South — examining how governance frameworks adapt across institutional settings and where they break down in practice.</p>
+      </div>
+
+      <div class="career-card">
+        <p class="cc-date">JAN 2026 – PRESENT</p>
+        <p class="cc-role">Research Assistant — Digital Industry & AI Deployment</p>
+        <p class="cc-org">TU Berlin · SEISMEC (EU Horizon Europe Project)</p>
+        <span class="cc-tag tr">Research</span>
+        <p class="cc-body">Analysis of AI integration in European industry — how governance requirements translate across different organisational and cultural contexts, with stakeholder engagement across diverse practitioners.</p>
+      </div>
+
+      <div class="career-card">
+        <p class="cc-date">JUL 2025 – PRESENT</p>
+        <p class="cc-role">Ronald Coase Fellow</p>
+        <p class="cc-org">Mercatus Center at George Mason University</p>
+        <span class="cc-tag tp">Policy</span>
+        <p class="cc-body">Policy-oriented analysis on institutional design and how governance structures support effective outcomes — with focus on the gap between how policy assumes institutions work and how they actually function.</p>
+      </div>
+
+      <div class="career-card">
+        <p class="cc-date">JAN 2025 – PRESENT</p>
+        <p class="cc-role">Governance & Technology Assessment Consultant</p>
+        <p class="cc-org">Fleetwood Strategy · London</p>
+        <span class="cc-tag tp">Policy</span>
+        <p class="cc-body">Policy analysis on public sector AI integration — including the Palantir–NHS implementation — examining where policy design breaks down in institutional practice and synthesising findings for policymakers.</p>
+      </div>
+
+      <div class="career-card">
+        <p class="cc-date">APR 2024 – AUG 2025</p>
+        <p class="cc-role">AI Trainer & Research Analyst</p>
+        <p class="cc-org">Scale AI</p>
+        <span class="cc-tag ts">AI Safety</span>
+        <p class="cc-body">Evaluated frontier AI systems, identifying gaps between policy safeguards and implementation reality. Assessed how institutional incentives shape actual outcomes versus stated governance goals.</p>
+      </div>
+
+    </div>
+
+    <h2>Education</h2>
+    <div class="career-grid">
+      <div class="career-card">
+        <p class="cc-date">AUG 2025 – PRESENT</p>
+        <p class="cc-role">Master of Public Policy</p>
+        <p class="cc-org">Hertie School, Berlin</p>
+        <p class="cc-body">Digital Regulation · Platform Governance · Ethical Technology Policy</p>
+      </div>
+      <div class="career-card">
+        <p class="cc-date">SEP 2022 – JAN 2024</p>
+        <p class="cc-role">MA Digital Culture & Society — Distinction</p>
+        <p class="cc-org">King's College London</p>
+        <p class="cc-body">Platform governance · Algorithmic accountability · Technology regulation · Where DataBias began.</p>
+      </div>
+    </div>
+
+    <h2>Who sent me in this direction</h2>
+    <p>These researchers changed the course of my career. I found their work while still in arts and culture, and I couldn't look away. They are among the first in DataBias's catalogue — and writing to them is one of the stranger, more meaningful things I'll do with this project.</p>
+
+    <div class="inspo-block">
+      <h4>Safiya Umoja Noble — <em>Algorithms of Oppression</em></h4>
+      <p class="ibw">Professor & Chair, UCLA · Director, Center on Race & Digital Justice</p>
+      <p>Her book was the first time I saw my experience with biased technology named and analysed with real rigour. She showed me that the things I had noticed weren't individual glitches — they were structural. It reframed everything I thought I understood about how data and power work together.</p>
+    </div>
+
+    <div class="inspo-block">
+      <h4>Timnit Gebru — DAIR Institute</h4>
+      <p class="ibw">Founder & Executive Director, Distributed AI Research Institute</p>
+      <p>Watching her refuse to be silenced by one of the most powerful companies in the world — and then build her own institution outside it — showed me what principled, independent research looks like when the stakes are high and the pressure to stay quiet is enormous.</p>
+    </div>
+
+    <div class="inspo-block">
+      <h4>Joy Buolamwini — Algorithmic Justice League</h4>
+      <p class="ibw">Founder, AJL · Author, <em>Unmasking AI</em> · Poet of Code</p>
+      <p>The Gender Shades research made visible what many of us had felt in our own encounters with technology. The way she combined art, research, and advocacy — and got companies to actually change — gave me a model for what this kind of work can be when it's done with both rigour and humanity.</p>
+    </div>
+
+    <div class="inspo-block">
+      <h4>Deborah Raji — AI Auditing & Accountability</h4>
+      <p class="ibw">Mozilla Fellow / UC Berkeley Researcher</p>
+      <p>She turned critique into methodology. Auditing AI systems, naming what fails and why, building the evidentiary case that made companies pull products — that's the kind of research that changes what institutions actually do. She made me take governance seriously as a craft.</p>
+    </div>
+
+    <div class="inspo-block">
+      <h4>Rediet Abebe — Algorithms & Inequality</h4>
+      <p class="ibw">Assistant Professor, UC Berkeley · Co-founder, Black in AI</p>
+      <p>The first Black female professor in UC Berkeley's engineering college history. Her presence in those rooms changes what future researchers can imagine for themselves. Her work on algorithms and distributive justice gave me language for questions I'd been circling for years without names for them.</p>
+    </div>
+
+    <div class="inspo-block">
+      <h4>Abeba Birhane — Dataset Auditing & ML Values</h4>
+      <p class="ibw">Mozilla Fellow / Researcher</p>
+      <p>Her work on the values embedded in ML systems and the harms in large datasets made me think hard about what DataBias's own data practices need to look like. You can't build something that claims to address bias without being rigorous about your own methods.</p>
+    </div>
+
+    <h2>Get in touch</h2>
+    <p>Whether you're a researcher who wants to be included in the database, a funder, a journalist covering AI and representation, or someone working on something adjacent who wants to talk — I'd genuinely love to hear from you.</p>
+    <p>Best route: <a href="https://www.linkedin.com/in/nafisah-a-animashaun/" target="_blank" style="color:var(--c-purple);font-weight:600">LinkedIn</a> or <a href="mailto:nafisahanimashaun24@gmail.com" style="color:var(--c-purple);font-weight:600">email</a>. For DataBias enquiries: <a href="mailto:hello@databias.org" style="color:var(--c-purple);font-weight:600">hello@databias.org</a>.</p>
+    <div style="display:flex;gap:1rem;flex-wrap:wrap;margin-top:1.5rem">
+      <a href="https://www.linkedin.com/in/nafisah-a-animashaun/" target="_blank" class="btn-primary">Connect on LinkedIn →</a>
+      <a href="mailto:nafisahanimashaun24@gmail.com" class="btn-ghost">Email Me</a>
+    </div>
+
+  </div>
+</section>
+
+<div class="ticker-wrap">
+  <div class="ticker">
+    <span>AI Governance</span><span class="sep">✦</span><span>Policy Implementation</span><span class="sep">✦</span><span>Digital Culture</span><span class="sep">✦</span><span>Algorithmic Accountability</span><span class="sep">✦</span><span>Hertie School Berlin</span><span class="sep">✦</span><span>King's College London</span><span class="sep">✦</span><span>SAIGE Incubator</span><span class="sep">✦</span><span>Mercatus Center</span><span class="sep">✦</span><span>AI Governance</span><span class="sep">✦</span><span>Policy Implementation</span><span class="sep">✦</span><span>Digital Culture</span><span class="sep">✦</span><span>Algorithmic Accountability</span><span class="sep">✦</span><span>Hertie School Berlin</span><span class="sep">✦</span><span>King's College London</span><span class="sep">✦</span><span>SAIGE Incubator</span><span class="sep">✦</span><span>Mercatus Center</span><span class="sep">✦</span>
+  </div>
+</div>
+
+<section class="section" style="background:var(--c-purple-light)">
+  <div style="max-width:780px;margin:0 auto">
+    <p class="section-eyebrow" style="text-align:left">Research Philosophy</p>
+    <h2 style="margin-bottom:1.5rem">What I believe about AI governance</h2>
+    <div style="display:flex;flex-direction:column;gap:1.5rem">
+      <div style="border-left:4px solid var(--c-purple);padding-left:1.5rem">
+        <h3 style="font-size:1.05rem;margin-bottom:0.4rem">Governance must be grounded in implementation</h3>
+        <p style="color:var(--c-mid);line-height:1.75">Frameworks fail when they don't account for how institutions actually work — their incentives, their constraints, their cultures. Working at Scale AI, I watched policies get circumvented when they didn't fit implementation reality. That's not a technology problem. It's a governance design problem.</p>
+      </div>
+      <div style="border-left:4px solid var(--c-pink);padding-left:1.5rem">
+        <h3 style="font-size:1.05rem;margin-bottom:0.4rem">Context is not an excuse for inconsistency</h3>
+        <p style="color:var(--c-mid);line-height:1.75">Growing up in interfaith communities, I learned that different cultures and institutions solve problems differently — and that's a feature, not a bug. What works in Berlin may need adaptation in Lagos. But there are underlying principles that can transfer. Finding those principles is the real work of comparative governance.</p>
+      </div>
+      <div style="border-left:4px solid var(--c-teal);padding-left:1.5rem">
+        <h3 style="font-size:1.05rem;margin-bottom:0.4rem">Visibility is a prerequisite for accountability</h3>
+        <p style="color:var(--c-mid);line-height:1.75">You cannot hold systems accountable for harms that aren't named. You cannot fund research that you can't find. DataBias is infrastructure before it is advocacy — but infrastructure that shifts access is political, whether it names itself that way or not.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section cta-section">
+  <div class="cta-inner">
+    <div class="cta-text">
+      <p class="section-eyebrow">Work Together</p>
+      <h2>Interested in DataBias or my research?</h2>
+      <p>I'm open to conversations about research collaboration, DataBias partnerships, speaking, and funding. The best introduction is a short message about what you're working on.</p>
+      <a href="https://www.linkedin.com/in/nafisah-a-animashaun/" target="_blank" class="btn-primary">Connect on LinkedIn →</a>
+    </div>
+    <div class="cta-quote">
+      <blockquote>
+        "Governance frameworks must be grounded in practice. They need to understand real constraints — institutional, cultural, economic."
+        <cite>— Nafisah Animashaun, Globethics Fellowship application</cite>
+      </blockquote>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-logo">Data<span>Bias</span></div>
+    <p class="footer-tagline">Founded by Nafisah Animashaun · A free global database of women of colour in AI safety, governance & algorithmic justice.</p>
+    <div class="footer-links">
+      <a href="catalogue.html">Catalogue</a>
+      <a href="resources.html">Resources</a>
+      <a href="about.html">About</a>
+      <a href="founder.html">Founder</a>
+      <a href="news.html">News</a>
+    </div>
+    <p class="footer-copy">Built with the Black Women Best Framework · databias.org · 2026</p>
+  </div>
+</footer>
+<script>
+  document.getElementById('hamburger').addEventListener('click',()=>document.getElementById('mobileNav').classList.toggle('open'));
+</script>
+</body>
+</html>
