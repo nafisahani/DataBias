@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Resources — Data Bias</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/style.css">
+<style>
+  .resource-section { padding: 4rem 5%; }
+  .resource-section + .resource-section { border-top: 1px solid var(--c-border); }
+  .resource-section h2 { font-size: 1.8rem; margin-bottom: 0.4rem; }
+  .resource-section .rs-sub { color:var(--c-mid); margin-bottom:2rem; font-size:0.95rem; }
+  .resource-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(300px,1fr)); gap:1.2rem; }
+  .resource-card {
+    background:white; border:1px solid var(--c-border);
+    border-radius:var(--radius); padding:1.3rem;
+    display:flex; flex-direction:column; gap:0.5rem;
+    transition:all 0.2s;
+  }
+  .resource-card:hover { border-color:var(--c-purple-light); box-shadow:var(--shadow); }
+  .resource-card a { color:inherit; }
+  .rc-type {
+    font-family:var(--font-mono); font-size:0.68rem;
+    letter-spacing:0.07em; text-transform:uppercase;
+    padding:0.2rem 0.6rem; border-radius:50px;
+    display:inline-block; margin-bottom:0.3rem;
+  }
+  .type-book { background:var(--c-gold-light); color:var(--c-gold); }
+  .type-article { background:var(--c-purple-light); color:var(--c-purple); }
+  .type-paper { background:var(--c-teal-light); color:var(--c-teal); }
+  .type-film { background:var(--c-pink-light); color:var(--c-pink); }
+  .type-podcast { background:#F0FDF4; color:#166534; }
+  .type-org { background:#FFF7ED; color:#9A3412; }
+  .type-tool { background:#EFF6FF; color:#1E40AF; }
+  .resource-card h3 { font-family:var(--font-display); font-size:1.05rem; line-height:1.3; }
+  .resource-card .rc-author { font-size:0.82rem; color:var(--c-pink); font-weight:500; }
+  .resource-card .rc-desc { font-size:0.85rem; color:var(--c-mid); line-height:1.6; flex:1; }
+  .resource-card .rc-link {
+    font-size:0.82rem; color:var(--c-purple); font-weight:600;
+    margin-top:0.3rem; transition:color 0.2s;
+  }
+  .resource-card .rc-link:hover { color:var(--c-pink); }
+  .filter-row { display:flex; gap:0.8rem; flex-wrap:wrap; margin-bottom:2rem; }
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <a href="/" class="nav-logo">Data<span>Bias</span></a>
+  <div class="nav-links">
+    <a href="/catalogue/">Catalogue</a>
+    <a href="/resources/" style="color:var(--c-purple);font-weight:600">Resources</a>
+    <a href="/about/">About</a>
+    <a href="/founder/">Founder</a>
+    <a href="/catalogue/" class="nav-cta">Submit Profile →</a>
+  </div>
+  <button class="nav-hamburger" id="hamburger">☰</button>
+</nav>
+<div class="nav-mobile" id="mobileNav">
+  <a href="/catalogue/">Catalogue</a>
+  <a href="/resources/">Resources</a>
+  <a href="/about/">About</a>
+  <a href="/founder/">Founder</a>
+  <a href="/news/">News</a>
+</div>
+
+<div class="page-hero">
+  <p class="section-eyebrow">Reading & Research</p>
+  <h1>Resources</h1>
+  <p>Curated books, papers, films, podcasts, and organisations for understanding AI through a lens of race, justice, and accountability.</p>
+</div>
+
+<!-- FILTER BAR -->
+<div class="filter-bar">
+  <span class="filter-label">FILTER</span>
+  <button class="filter-btn active" onclick="filterRes('all',this)">All</button>
+  <button class="filter-btn" onclick="filterRes('book',this)">Books</button>
+  <button class="filter-btn" onclick="filterRes('paper',this)">Papers</button>
+  <button class="filter-btn" onclick="filterRes('film',this)">Films & Docs</button>
+  <button class="filter-btn" onclick="filterRes('podcast',this)">Podcasts</button>
+  <button class="filter-btn" onclick="filterRes('org',this)">Organisations</button>
+  <button class="filter-btn" onclick="filterRes('tool',this)">Tools</button>
+</div>
+
+<!-- FOUNDATIONAL TEXTS -->
+<section class="resource-section">
+  <p class="section-eyebrow">Start Here</p>
+  <h2>Foundational texts</h2>
+  <p class="rs-sub">The books and papers that built the intellectual foundation for this field.</p>
+  <div class="resource-grid" id="resourceGrid">
+
+    <div class="resource-card" data-type="book">
+      <span class="rc-type type-book">Book</span>
+      <h3>Algorithms of Oppression</h3>
+      <p class="rc-author">Safiya Umoja Noble (2018)</p>
+      <p class="rc-desc">How search engines reinforce racism. The foundational text for understanding how seemingly neutral technologies encode racial and gender bias. Essential reading.</p>
+      <a href="https://nyupress.org/9781479837243/algorithms-of-oppression/" class="rc-link" target="_blank">Publisher page →</a>
+    </div>
+
+    <div class="resource-card" data-type="book">
+      <span class="rc-type type-book">Book</span>
+      <h3>Unmasking AI</h3>
+      <p class="rc-author">Joy Buolamwini (2023)</p>
+      <p class="rc-desc">A memoir and investigation into the harms and biases of AI — part personal story, part rigorous research. Written by the founder of the Algorithmic Justice League.</p>
+      <a href="https://www.penguinrandomhouse.com/books/670987/unmasking-ai-by-joy-buolamwini/" class="rc-link" target="_blank">Publisher page →</a>
+    </div>
+
+    <div class="resource-card" data-type="book">
+      <span class="rc-type type-book">Book</span>
+      <h3>Race After Technology</h3>
+      <p class="rc-author">Ruha Benjamin (2019)</p>
+      <p class="rc-desc">Introduces the concept of the "New Jim Code" — how seemingly neutral technologies can perpetuate racial discrimination under the guise of innovation and objectivity.</p>
+      <a href="https://www.ruhabenjamin.com/race-after-technology" class="rc-link" target="_blank">Author page →</a>
+    </div>
+
+    <div class="resource-card" data-type="book">
+      <span class="rc-type type-book">Book</span>
+      <h3>Data Feminism</h3>
+      <p class="rc-author">Catherine D'Ignazio & Lauren Klein (2020)</p>
+      <p class="rc-desc">A rigorous and accessible framework for thinking about power in relation to data. Examines how the work of data science, including AI, can be approached from a feminist perspective. Full text available free online.</p>
+      <a href="https://datafeminism.io/" class="rc-link" target="_blank">datafeminism.io →</a>
+    </div>
+
+    <div class="resource-card" data-type="book">
+      <span class="rc-type type-book">Book</span>
+      <h3>Digital Democracy, Analogue Politics</h3>
+      <p class="rc-author">Nanjala Nyabola (2018)</p>
+      <p class="rc-desc">How technology intersects with democracy in Kenya and East Africa. A critical corrective to Western-centric narratives about technology and political participation.</p>
+      <a href="https://www.zedbooks.net/shop/book/digital-democracy-analogue-politics/" class="rc-link" target="_blank">Publisher page →</a>
+    </div>
+
+    <div class="resource-card" data-type="book">
+      <span class="rc-type type-book">Book</span>
+      <h3>Atlas of AI</h3>
+      <p class="rc-author">Kate Crawford (2021)</p>
+      <p class="rc-desc">Maps the material, political, and social conditions that make AI possible — mines, data centres, human labour, state power. Challenges the idea that AI is immaterial or neutral.</p>
+      <a href="https://yalebooks.yale.edu/book/9780300264630/atlas-of-ai/" class="rc-link" target="_blank">Publisher page →</a>
+    </div>
+
+    <div class="resource-card" data-type="paper">
+      <span class="rc-type type-paper">Paper</span>
+      <h3>Gender Shades</h3>
+      <p class="rc-author">Buolamwini & Gebru (2018)</p>
+      <p class="rc-desc">The landmark study that exposed racial and gender disparities in commercial facial analysis AI — up to 34.7% error rate for darker-skinned women vs 0.8% for lighter-skinned men. Changed the industry.</p>
+      <a href="http://proceedings.mlr.press/v81/buolamwini18a.html" class="rc-link" target="_blank">Read paper →</a>
+    </div>
+
+    <div class="resource-card" data-type="paper">
+      <span class="rc-type type-paper">Paper</span>
+      <h3>Stochastic Parrots</h3>
+      <p class="rc-author">Bender, Gebru et al. (2021)</p>
+      <p class="rc-desc">The paper whose suppression by Google led to Timnit Gebru's firing. Examines the risks and harms of large language models. One of the most important AI safety papers written by women of colour.</p>
+      <a href="https://dl.acm.org/doi/10.1145/3442188.3445922" class="rc-link" target="_blank">Read paper →</a>
+    </div>
+
+    <div class="resource-card" data-type="paper">
+      <span class="rc-type type-paper">Paper</span>
+      <h3>Datasheets for Datasets</h3>
+      <p class="rc-author">Gebru et al. (2021)</p>
+      <p class="rc-desc">Proposes a standard documentation framework for datasets used to train AI systems. A practical tool for accountability that has influenced the whole field.</p>
+      <a href="https://dl.acm.org/doi/10.1145/3458723" class="rc-link" target="_blank">Read paper →</a>
+    </div>
+
+    <div class="resource-card" data-type="paper">
+      <span class="rc-type type-paper">Paper</span>
+      <h3>Black Women Best Framework</h3>
+      <p class="rc-author">Janelle Jones, Roosevelt Institute (2020)</p>
+      <p class="rc-desc">The framework that underpins DataBias. Argues that when policy centres those at the sharpest intersections of oppression, it works better for everyone. Originally an economic policy framework, it applies directly to AI design.</p>
+      <a href="https://rooseveltinstitute.org/publications/black-women-best/" class="rc-link" target="_blank">Read report →</a>
+    </div>
+
+  </div>
+</section>
+
+<!-- FILMS & DOCS -->
+<section class="resource-section">
+  <p class="section-eyebrow">Watch</p>
+  <h2>Films & documentaries</h2>
+  <p class="rs-sub">For when you want to watch rather than read — and to share with people who aren't ready for an academic paper.</p>
+  <div class="resource-grid">
+
+    <div class="resource-card" data-type="book">
+      <span class="rc-type type-book">Book</span>
+      <h3>Empire of AI</h3>
+      <p class="rc-author">Karen Hao (2025)</p>
+      <p class="rc-desc">A landmark investigation into how OpenAI's pursuit of artificial general intelligence has reshaped power, labour, and society globally — from Silicon Valley to the Global South. Hao spent years reporting from inside the AI industry. Essential for understanding not just what AI does, but who it serves and who pays the price.</p>
+      <a href="https://www.penguinrandomhouse.com/books/741805/empire-of-ai-by-karen-hao/" class="rc-link" target="_blank">Publisher page →</a>
+    </div>
+
+    <div class="resource-card" data-type="film">
+      <span class="rc-type type-film">Film</span>
+      <h3>Coded Bias</h3>
+      <p class="rc-author">Dir. Shalini Kantayya (2020, Netflix)</p>
+      <p class="rc-desc">Follows Joy Buolamwini's research into facial recognition bias and the broader fight for AI accountability. The most accessible introduction to algorithmic justice for general audiences.</p>
+      <a href="https://www.codedbias.com/" class="rc-link" target="_blank">Film website →</a>
+    </div>
+
+    <div class="resource-card" data-type="film">
+      <span class="rc-type type-film">Talk</span>
+      <h3>AI, Ain't I A Woman?</h3>
+      <p class="rc-author">Joy Buolamwini (TED, 2016 + 2022)</p>
+      <p class="rc-desc">Buolamwini's landmark TED talk on algorithmic bias — combining spoken word poetry with research. Over 1.7 million views. Her follow-up 2022 TED AI talk on protecting human rights in an age of AI is equally important.</p>
+      <a href="https://www.ted.com/speakers/joy_buolamwini" class="rc-link" target="_blank">Watch on TED →</a>
+    </div>
+
+    <div class="resource-card" data-type="film">
+      <span class="rc-type type-film">Talk</span>
+      <h3>How Search Engines Reinforce Racism</h3>
+      <p class="rc-author">Safiya Umoja Noble (TED, 2018)</p>
+      <p class="rc-desc">Noble on how internet search can encode and amplify biases — and why that matters for democratic society. Clear, accessible, and short enough to share.</p>
+      <a href="https://www.ted.com/talks/safiya_umoja_noble_how_search_algorithms_can_be_biased" class="rc-link" target="_blank">Watch on TED →</a>
+    </div>
+
+    <div class="resource-card" data-type="film">
+      <span class="rc-type type-film">Series</span>
+      <h3>Mystery AI Hype Theater 3000</h3>
+      <p class="rc-author">Emily Bender & Timnit Gebru (DAIR, 2023–)</p>
+      <p class="rc-desc">A podcast/video series that applies rigorous critique to AI hype and misinformation. Funny, rigorous, and a useful antidote to the "AI will solve everything" discourse.</p>
+      <a href="https://www.dair-institute.org/maiht3k/" class="rc-link" target="_blank">DAIR website →</a>
+    </div>
+
+  </div>
+</section>
+
+<!-- PODCASTS & NEWSLETTERS -->
+<section class="resource-section">
+  <p class="section-eyebrow">Listen & Subscribe</p>
+  <h2>Podcasts & newsletters</h2>
+  <p class="rs-sub">For staying current without reading every paper.</p>
+  <div class="resource-grid">
+
+    <div class="resource-card" data-type="podcast">
+      <span class="rc-type type-podcast">Newsletter</span>
+      <h3>Data Sistren</h3>
+      <p class="rc-author">Hillary Juma</p>
+      <p class="rc-desc">A newsletter that examines feminist approaches to data in a digital age. One of the inspirations for DataBias. Thoughtful, well-researched, and non-US in its perspective.</p>
+      <a href="https://htothehilla.github.io/datasistern/" class="rc-link" target="_blank">Read →</a>
+    </div>
+
+    <div class="resource-card" data-type="podcast">
+      <span class="rc-type type-podcast">Newsletter</span>
+      <h3>Beacons (Logic Magazine)</h3>
+      <p class="rc-author">Logic Magazine, Issue 15</p>
+      <p class="rc-desc">The issue of Logic Magazine created in the aftermath of Timnit Gebru's firing from Google. A landmark document for understanding the politics of AI ethics and the cost of speaking up.</p>
+      <a href="https://logicmag.io/beacons/" class="rc-link" target="_blank">Read →</a>
+    </div>
+
+    <div class="resource-card" data-type="podcast">
+      <span class="rc-type type-podcast">Podcast</span>
+      <h3>The DAIR Podcast</h3>
+      <p class="rc-author">DAIR Institute</p>
+      <p class="rc-desc">Conversations from the Distributed AI Research Institute — community-rooted AI research, free from Big Tech influence. Subscribe via DAIR's newsletter to get episodes.</p>
+      <a href="https://www.dair-institute.org/" class="rc-link" target="_blank">DAIR website →</a>
+    </div>
+
+    <div class="resource-card" data-type="podcast">
+      <span class="rc-type type-podcast">Podcast</span>
+      <h3>Black in AI Talks</h3>
+      <p class="rc-author">Black in AI community</p>
+      <p class="rc-desc">Talks and discussions from the Black in AI community — one of the most important networks for Black AI researchers globally. Workshop proceedings and talks are publicly available.</p>
+      <a href="https://blackinai.github.io/" class="rc-link" target="_blank">blackinai.github.io →</a>
+    </div>
+
+  </div>
+</section>
+
+<!-- ORGANISATIONS -->
+<section class="resource-section">
+  <p class="section-eyebrow">Connect</p>
+  <h2>Organisations & networks</h2>
+  <p class="rs-sub">Where to find the community, the research, and the advocacy.</p>
+  <div class="resource-grid">
+
+    <div class="resource-card" data-type="org">
+      <span class="rc-type type-org">Organisation</span>
+      <h3>DAIR Institute</h3>
+      <p class="rc-author">Founded by Timnit Gebru</p>
+      <p class="rc-desc">Independent, community-rooted AI research free from Big Tech influence. Focus on marginalised communities, Africa, and African immigrants in the US.</p>
+      <a href="https://www.dair-institute.org/" class="rc-link" target="_blank">dair-institute.org →</a>
+    </div>
+
+    <div class="resource-card" data-type="org">
+      <span class="rc-type type-org">Organisation</span>
+      <h3>Algorithmic Justice League</h3>
+      <p class="rc-author">Founded by Joy Buolamwini</p>
+      <p class="rc-desc">Uses art, research, and advocacy to highlight the social implications and harms of AI. One of the most influential organisations in AI accountability.</p>
+      <a href="https://www.ajl.org/" class="rc-link" target="_blank">ajl.org →</a>
+    </div>
+
+    <div class="resource-card" data-type="org">
+      <span class="rc-type type-org">Organisation</span>
+      <h3>AI Now Institute</h3>
+      <p class="rc-author">Co-directed by Amba Kak</p>
+      <p class="rc-desc">Policy-focused research on the social implications of AI. Publishes annual reports and policy briefs. Based at NYU.</p>
+      <a href="https://ainowinstitute.org/" class="rc-link" target="_blank">ainowinstitute.org →</a>
+    </div>
+
+    <div class="resource-card" data-type="org">
+      <span class="rc-type type-org">Network</span>
+      <h3>Black in AI</h3>
+      <p class="rc-author">Co-founded by Timnit Gebru & Rediet Abebe</p>
+      <p class="rc-desc">A network of 1,500+ Black AI researchers. Runs annual workshops at NeurIPS and offers networking and collaborative opportunities globally.</p>
+      <a href="https://blackinai.github.io/" class="rc-link" target="_blank">blackinai.github.io →</a>
+    </div>
+
+    <div class="resource-card" data-type="org">
+      <span class="rc-type type-org">Organisation</span>
+      <h3>Data Feminism Network</h3>
+      <p class="rc-author">Community network</p>
+      <p class="rc-desc">A network for those working at the intersection of data science and feminist practice. Conferences, resources, and community.</p>
+      <a href="https://www.datafeminismnetwork.org/" class="rc-link" target="_blank">datafeminismnetwork.org →</a>
+    </div>
+
+    <div class="resource-card" data-type="org">
+      <span class="rc-type type-org">Organisation</span>
+      <h3>Ada Lovelace Institute</h3>
+      <p class="rc-author">UK independent research body</p>
+      <p class="rc-desc">UK-based independent research and deliberative body with a mission to ensure data and AI work for people and society. Important for UK policy context.</p>
+      <a href="https://www.adalovelaceinstitute.org/" class="rc-link" target="_blank">adalovelaceinstitute.org →</a>
+    </div>
+
+    <div class="resource-card" data-type="org">
+      <span class="rc-type type-org">Organisation</span>
+      <h3>AI for the People</h3>
+      <p class="rc-author">Founded by Mutale Nkonde</p>
+      <p class="rc-desc">Works to advance civil rights protections in the AI era. Focuses on algorithmic discrimination and the intersection of race, law, and technology.</p>
+      <a href="https://www.aiforthepeople.org/" class="rc-link" target="_blank">aiforthepeople.org →</a>
+    </div>
+
+    <div class="resource-card" data-type="org">
+      <span class="rc-type type-org">Initiative</span>
+      <h3>MD4SG / EAAMO</h3>
+      <p class="rc-author">Co-founded by Rediet Abebe</p>
+      <p class="rc-desc">Mechanism Design for Social Good — and its associated ACM conference on Equity and Access in Algorithms, Mechanisms, and Optimization. Rigorous, community-oriented, global.</p>
+      <a href="https://eaamo.org/" class="rc-link" target="_blank">eaamo.org →</a>
+    </div>
+
+  </div>
+</section>
+
+<!-- TOOLS -->
+<section class="resource-section">
+  <p class="section-eyebrow">In Practice</p>
+  <h2>Tools & frameworks</h2>
+  <p class="rs-sub">Practical resources for applying these ideas in research and practice.</p>
+  <div class="resource-grid">
+
+    <div class="resource-card" data-type="tool">
+      <span class="rc-type type-tool">Framework</span>
+      <h3>Model Cards</h3>
+      <p class="rc-author">Mitchell, Wu, Zaldivar et al. (2019)</p>
+      <p class="rc-desc">A documentation framework for machine learning models — transparently reporting a model's intended use, training data, performance across demographic groups, and known limitations.</p>
+      <a href="https://modelcards.withgoogle.com/" class="rc-link" target="_blank">modelcards.withgoogle.com →</a>
+    </div>
+
+    <div class="resource-card" data-type="tool">
+      <span class="rc-type type-tool">Dataset</span>
+      <h3>AI Incident Database</h3>
+      <p class="rc-author">Partnership on AI</p>
+      <p class="rc-desc">A database of AI system failures, harms, and near-misses. Essential for understanding what actually goes wrong with AI in deployment — not just in theory.</p>
+      <a href="https://incidentdatabase.ai/" class="rc-link" target="_blank">incidentdatabase.ai →</a>
+    </div>
+
+    <div class="resource-card" data-type="tool">
+      <span class="rc-type type-tool">Tool</span>
+      <h3>Data & Society Research Institute</h3>
+      <p class="rc-author">Research organisation</p>
+      <p class="rc-desc">Produces rigorous, accessible research on the social, cultural, and ethical dimensions of data-centric technologies. Reports, case studies, and policy briefs available free.</p>
+      <a href="https://datasociety.net/" class="rc-link" target="_blank">datasociety.net →</a>
+    </div>
+
+    <div class="resource-card" data-type="tool">
+      <span class="rc-type type-tool">Curriculum</span>
+      <h3>Calling Bullshit on AI</h3>
+      <p class="rc-author">Bergstrom & West, UW</p>
+      <p class="rc-desc">A free course on data reasoning and how to critically evaluate AI claims. Useful for building the skills to interrogate AI research and media coverage.</p>
+      <a href="https://www.callingbullshit.org/" class="rc-link" target="_blank">callingbullshit.org →</a>
+    </div>
+
+  </div>
+</section>
+
+<!-- SUBMIT A RESOURCE -->
+<section class="section cta-section">
+  <div class="cta-inner">
+    <div class="cta-text">
+      <p class="section-eyebrow">Help Grow This List</p>
+      <h2>Know a resource we should add?</h2>
+      <p>This list is maintained by the DataBias community. If you know of a book, paper, tool, or organisation that should be here — especially from outside the US and UK — please let us know.</p>
+      <a href="mailto:hello@databias.org?subject=Resource%20suggestion" class="btn-primary">Suggest a Resource →</a>
+    </div>
+    <div class="cta-quote">
+      <blockquote>
+        "The site will host works from academics and non-academics about topics related to data, algorithms, and AI — allowing an evaluation of current data policies."
+        <cite>— DataBias original proposal, KCL, 2022</cite>
+      </blockquote>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-logo">Data<span>Bias</span></div>
+    <p class="footer-tagline">Founded by Nafisah Animashaun &middot; A free global directory of women of colour working in AI safety, governance &amp; algorithmic justice.</p>
+    <div class="footer-links">
+      <a href="/catalogue/">Catalogue</a>
+      <a href="/resources/">Resources</a>
+      <a href="/about/">About</a>
+      <a href="/founder/">Founder</a>
+      <a href="/news/">News</a>
+      <a href="mailto:hello@databias.org">Contact</a>
+    </div>
+    <p class="footer-copy">Built with the Black Women Best Framework &middot; databias.org &middot; 2026</p>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('hamburger').addEventListener('click',()=>document.getElementById('mobileNav').classList.toggle('open'));
+  function filterRes(type, btn) {
+    document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));
+    btn.classList.add('active');
+    document.querySelectorAll('.resource-card').forEach(card=>{
+      card.style.display = (type==='all' || card.dataset.type===type) ? '' : 'none';
+    });
+  }
+</script>
+</body>
+</html>
