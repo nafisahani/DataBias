@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Catalogue — Data Bias</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/style.css">
+</head>
+<body>
+ 
+<nav class="nav">
+  <a href="/" class="nav-logo">Data<span>Bias</span></a>
+  <div class="nav-links">
+    <a href="/catalogue/" style="color:var(--c-purple);font-weight:600">Catalogue</a>
+    <a href="/resources/">Resources</a>
+    <a href="/about/">About</a>
+    <a href="/founder/">Founder</a>
+    <a href="/news/">News</a>
+    <a href="/submit/" class="nav-cta">Submit Profile &rarr;</a>
+  </div>
+  <button class="nav-hamburger" id="hamburger">☰</button>
+</nav>
+<div class="nav-mobile" id="mobileNav">
+  <a href="/catalogue/">Catalogue</a>
+  <a href="/resources/">Resources</a>
+  <a href="/about/">About</a>
+  <a href="/founder/">Founder</a>
+  <a href="/news/">News</a>
+</div>
+ 
+<div class="page-hero">
+  <p class="section-eyebrow">The Directory</p>
+  <h1>Researcher Catalogue</h1>
+  <p>Women of colour working in AI safety, governance, and algorithmic justice — from across the globe.</p>
+</div>
+ 
+<div class="filter-bar">
+  <span class="filter-label">FILTER BY</span>
+  <button class="filter-btn active" onclick="filterCards('all', this)">All</button>
+  <button class="filter-btn" onclick="filterCards('ai-safety', this)">AI Safety</button>
+  <button class="filter-btn" onclick="filterCards('governance', this)">AI Governance</button>
+  <button class="filter-btn" onclick="filterCards('alg-justice', this)">Alg. Justice</button>
+  <button class="filter-btn" onclick="filterCards('uk', this)">UK-based</button>
+  <button class="filter-btn" onclick="filterCards('africa', this)">Africa</button>
+  <input class="search-input" type="text" placeholder="Search researchers..." id="searchInput" oninput="searchCards(this.value)">
+</div>
+
+  <div class="catalogue-grid">
+  <div class="researcher-grid" id="catalogueGrid">
+
+    <article class="researcher-card" data-area="alg-justice" data-region="usa" data-search="safiya umoja noble algorithms oppression UCLA search bias race black feminism">
+      <div class="rc-header">
+        <div class="rc-avatar" style="background:var(--c-gold-light);color:var(--c-gold)">SN</div>
+        <div class="rc-tag alg-justice-tag">Alg. Justice</div>
+      </div>
+      <h3 class="rc-name">Safiya Umoja Noble</h3>
+      <p class="rc-role">Professor, UCLA</p>
+      <p class="rc-region">🌎 USA</p>
+      <p class="rc-bio">Author of <em>Algorithms of Oppression</em>. Exposes how search engines and AI systems encode racial and gender bias. Foundational voice in tech criticism and Black feminist scholarship.</p>
+      <div class="rc-tags"><span>Search Bias</span><span>Race & Tech</span><span>Black Feminism</span></div>
+    </article>
+
+    <article class="researcher-card" data-area="ai-safety" data-region="usa ethiopia" data-search="timnit gebru DAIR ethics bias dataset documentation NeurIPS google stochastic parrots">
+      <div class="rc-header">
+        <div class="rc-avatar" style="background:var(--c-pink-light)">TG</div>
+        <div class="rc-tag ai-safety-tag">AI Safety</div>
+      </div>
+      <h3 class="rc-name">Timnit Gebru</h3>
+      <p class="rc-role">Founder, DAIR Institute</p>
+      <p class="rc-region">🌍 Ethiopia / USA</p>
+      <p class="rc-bio">Pioneer in AI ethics. Co-authored foundational Datasheets for Datasets and the Stochastic Parrots paper. Founded DAIR to centre community-based AI research after her departure from Google.</p>
+      <div class="rc-tags"><span>AI Ethics</span><span>Dataset Auditing</span><span>Fairness</span></div>
+    </article>
+
+    <article class="researcher-card" data-area="alg-justice" data-region="usa ghana" data-search="joy buolamwini algorithmic justice league facial recognition bias Gender Shades MIT unmasking AI">
+      <div class="rc-header">
+        <div class="rc-avatar" style="background:var(--c-teal-light);color:var(--c-teal)">JB</div>
+        <div class="rc-tag alg-justice-tag">Alg. Justice</div>
+      </div>
+      <h3 class="rc-name">Joy Buolamwini</h3>
+      <p class="rc-role">Founder, Algorithmic Justice League</p>
+      <p class="rc-region">🌍 Ghana / USA</p>
+      <p class="rc-bio">Her Gender Shades research exposed racial and gender disparities in commercial facial analysis AI. Author of <em>Unmasking AI</em>. Testified before US Congress on AI accountability.</p>
+      <div class="rc-tags"><span>Facial Recognition</span><span>AI Accountability</span><span>Policy</span></div>
+    </article>
+
+    <article class="researcher-card" data-area="governance" data-region="usa nigeria" data-search="deborah raji AI auditing accountability Mozilla Berkeley evaluation facial recognition amazon IBM">
+      <div class="rc-header">
+        <div class="rc-avatar" style="background:var(--c-purple-light)">DR</div>
+        <div class="rc-tag governance-tag">AI Governance</div>
+      </div>
+      <h3 class="rc-name">Deborah Raji</h3>
+      <p class="rc-role">Mozilla Fellow / UC Berkeley</p>
+      <p class="rc-region">🌍 Nigeria / USA</p>
+      <p class="rc-bio">Pioneered AI auditing methodology. Exposed failures of commercial AI systems in deployment. Her work directly shaped Amazon and IBM pulling their facial recognition products.</p>
+      <div class="rc-tags"><span>AI Auditing</span><span>Accountability</span><span>Model Evaluation</span></div>
+    </article>
+
+    <article class="researcher-card" data-area="governance" data-region="usa india" data-search="amba kak AI Now Institute governance policy accountability power regulation NYU">
+      <div class="rc-header">
+        <div class="rc-avatar" style="background:var(--c-gold-light);color:var(--c-gold)">AK</div>
+        <div class="rc-tag governance-tag">AI Governance</div>
+      </div>
+      <h3 class="rc-name">Amba Kak</h3>
+      <p class="rc-role">Co-Executive Director, AI Now Institute</p>
+      <p class="rc-region">🌏 India / USA</p>
+      <p class="rc-bio">Ensures AI systems are accountable to the public rather than corporate interests. Focuses on policy reform, regulation, and structural analysis of AI power at the AI Now Institute, NYU.</p>
+      <div class="rc-tags"><span>AI Policy</span><span>Governance</span><span>Power & Accountability</span></div>
+    </article>
+
+    <article class="researcher-card" data-area="alg-justice" data-region="usa ethiopia" data-search="rediet abebe inequality mechanism design poverty Berkeley AI Black in AI co-founder first Black female professor engineering">
+      <div class="rc-header">
+        <div class="rc-avatar" style="background:var(--c-pink-light)">RA</div>
+        <div class="rc-tag alg-justice-tag">Alg. Justice</div>
+      </div>
+      <h3 class="rc-name">Rediet Abebe</h3>
+      <p class="rc-role">Assistant Professor, UC Berkeley</p>
+      <p class="rc-region">🌍 Ethiopia / USA</p>
+      <p class="rc-bio">Works on AI and inequality, mechanism design and poverty. Co-founded Black in AI. First Black female professor in UC Berkeley's engineering college. Research examines how computational tools can improve equity.</p>
+      <div class="rc-tags"><span>AI & Inequality</span><span>Mechanism Design</span><span>Global South</span></div>
+    </article>
+
+    <article class="researcher-card" data-area="ai-safety" data-region="ireland ethiopia" data-search="abeba birhane trinity college dublin TCD AI accountability lab dataset values ML audit cognitive science TIME100 UN advisory Ireland">
+      <div class="rc-header">
+        <div class="rc-avatar" style="background:var(--c-teal-light);color:var(--c-teal)">AB</div>
+        <div class="rc-tag ai-safety-tag">AI Safety</div>
+      </div>
+      <h3 class="rc-name">Abeba Birhane</h3>
+      <p class="rc-role">Assistant Professor & PI, AI Accountability Lab, Trinity College Dublin</p>
+      <p class="rc-region">🌍 Ethiopia / Ireland</p>
+      <p class="rc-bio">Founder and Principal Investigator of the AI Accountability Lab at TCD. TIME100 Most Influential People in AI (2023). Served on the UN Secretary-General's AI Advisory Body and Ireland's AI Advisory Council. Known for auditing AI models and training datasets for harmful content and examining values embedded in ML systems.</p>
+      <div class="rc-tags"><span>AI Accountability</span><span>Dataset Auditing</span><span>ML Values</span></div>
+      <a href="https://aial.ie" target="_blank" class="rc-link">aial.ie →</a>
+    </article>
+
+    <article class="researcher-card" data-area="alg-justice" data-region="uk" data-search="temi lasade-anderson King's College London digital intimacy Black women data UK KCL platform">
+      <div class="rc-header">
+        <div class="rc-avatar" style="background:var(--c-purple-light)">TL</div>
+        <div class="rc-tag alg-justice-tag">Alg. Justice</div>
+      </div>
+      <h3 class="rc-name">Temi Lasade-Anderson</h3>
+      <p class="rc-role">PhD Researcher, King's College London</p>
+      <p class="rc-region">🇬🇧 UK</p>
+      <p class="rc-bio">Researching Black women's digital intimacy and online experiences in the UK context. Examines how platforms shape and constrain Black women's digital lives.</p>
+      <div class="rc-tags"><span>Digital Intimacy</span><span>Race & Data</span><span>UK</span></div>
+    </article>
+
+    <article class="researcher-card" data-area="governance" data-region="usa zambia" data-search="mutale nkonde AI People civil rights algorithmic discrimination Zambia racial justice technology policy">
+      <div class="rc-header">
+        <div class="rc-avatar" style="background:var(--c-gold-light);color:var(--c-gold)">MN</div>
+        <div class="rc-tag governance-tag">AI Governance</div>
+      </div>
+      <h3 class="rc-name">Mutale Nkonde</h3>
+      <p class="rc-role">CEO, AI for the People</p>
+      <p class="rc-region">🌍 Zambia / USA</p>
+      <p class="rc-bio">Advocates for civil rights protections in the age of AI. Works at the intersection of racial justice and technology policy. Founded AI for the People to address algorithmic discrimination.</p>
+      <div class="rc-tags"><span>Civil Rights</span><span>AI Policy</span><span>Discrimination</span></div>
+    </article>
+
+    <article class="researcher-card" data-area="governance" data-region="africa kenya" data-search="nanjala nyabola Kenya author technology democracy digital colonialism Africa East Africa politics">
+      <div class="rc-header">
+        <div class="rc-avatar" style="background:var(--c-teal-light);color:var(--c-teal)">NN</div>
+        <div class="rc-tag governance-tag">AI Governance</div>
+      </div>
+      <h3 class="rc-name">Nanjala Nyabola</h3>
+      <p class="rc-role">Author / Political Analyst</p>
+      <p class="rc-region">🌍 Kenya</p>
+      <p class="rc-bio">Author of <em>Digital Democracy, Analogue Politics</em>. Analyses how technology intersects with democracy and governance in East Africa. Critical voice on digital colonialism and tech power in the Global South.</p>
+      <div class="rc-tags"><span>Digital Democracy</span><span>Africa</span><span>Digital Colonialism</span></div>
+    </article>
+
+    <article class="researcher-card" data-area="governance" data-region="india uk" data-search="vidushi marda Article 19 AI surveillance human rights law India policy digital rights">
+      <div class="rc-header">
+        <div class="rc-avatar" style="background:var(--c-pink-light)">VM</div>
+        <div class="rc-tag governance-tag">AI Governance</div>
+      </div>
+      <h3 class="rc-name">Vidushi Marda</h3>
+      <p class="rc-role">Researcher, Article 19</p>
+      <p class="rc-region">🌏 India / UK</p>
+      <p class="rc-bio">Works on AI policy, surveillance, and human rights law. Research examines how AI enables government surveillance and the legal frameworks needed to protect rights.</p>
+      <div class="rc-tags"><span>AI & Law</span><span>Surveillance</span><span>Human Rights</span></div>
+    </article>
+
+    <article class="researcher-card" data-area="governance" data-region="uk scotland" data-search="sidrah hassan AI ethicist governance Kainos Edinburgh BBC AI100 UK women AI ethics Diverse AI Scotland EU AI Act GDPR ISO">
+      <div class="rc-header">
+        <div class="rc-avatar" style="background:var(--c-purple-light)">SH</div>
+        <div class="rc-tag governance-tag">AI Governance</div>
+      </div>
+      <h3 class="rc-name">Sidrah Hassan</h3>
+      <p class="rc-role">AI Governance & Ethics Manager, Kainos</p>
+      <p class="rc-region">🇬🇧 Scotland, UK</p>
+      <p class="rc-bio">Award-winning AI Ethicist and Digital Leaders AI 100 UK honouree. Designs and operationalises AI governance frameworks aligned with the EU AI Act, GDPR, and ISO standards. Women in AI Ethics Fellow, BBC Scotland content creator on AI literacy, and contributor to Diverse Spectrum — an open-source equitable image dataset.</p>
+      <div class="rc-tags"><span>AI Governance</span><span>EU AI Act</span><span>AI Ethics</span><span>Dataset Diversity</span></div>
+      <a href="https://www.aiethicshub.co.uk" target="_blank" class="rc-link">aiethicshub.co.uk →</a>
+    </article>
+
+    <article class="researcher-card" data-area="alg-justice" data-region="usa bangladesh" data-search="rumman chowdhury Humane Intelligence AI auditing bias responsible evaluation accenture participatory">
+      <div class="rc-header">
+        <div class="rc-avatar" style="background:var(--c-gold-light);color:var(--c-gold)">RC</div>
+        <div class="rc-tag alg-justice-tag">Alg. Justice</div>
+      </div>
+      <h3 class="rc-name">Rumman Chowdhury</h3>
+      <p class="rc-role">Founder, Humane Intelligence</p>
+      <p class="rc-region">🌏 Bangladesh / USA</p>
+      <p class="rc-bio">Expert in responsible AI and bias evaluation. Formerly Global Lead for Responsible AI at Accenture. Founded Humane Intelligence to advance participatory AI auditing and red-teaming practices globally.</p>
+      <div class="rc-tags"><span>Responsible AI</span><span>Bias Evaluation</span><span>AI Auditing</span></div>
+    </article>
+
+    <!-- ── NEW PROFILES ────────────────────────────────────── -->
+
+    <article class="researcher-card" data-area="alg-justice" data-region="usa international" data-search="karen hao journalist empire of AI OpenAI investigation global south labour The Atlantic MIT Technology Review power">
+      <div class="rc-header">
+        <div class="rc-avatar" style="background:var(--c-teal-light);color:var(--c-teal)">KH</div>
+        <div class="rc-tag alg-justice-tag">Alg. Justice</div>
+      </div>
+      <h3 class="rc-name">Karen Hao</h3>
+      <p class="rc-role">Journalist & Author</p>
+      <p class="rc-region">🌎 USA / International</p>
+      <p class="rc-bio">Author of <em>Empire of AI</em> (2025), a landmark investigation into OpenAI and the global consequences of the AI industry. Former AI reporter at The Atlantic and MIT Technology Review. Her work exposes the labour exploitation and power dynamics behind AI development, particularly in the Global South.</p>
+      <div class="rc-tags"><span>AI Journalism</span><span>Global South</span><span>Power & Labour</span></div>
+      <a href="https://karenhao.co" target="_blank" class="rc-link">karenhao.co →</a>
+    </article>
+
+    <article class="researcher-card" data-area="ai-safety" data-region="usa" data-search="mala kumar Humane Intelligence AI evaluation red teaming GitHub UN open source social good MLCommons AI safety benchmark nonprofit executive director">
+      <div class="rc-header">
+        <div class="rc-avatar" style="background:var(--c-pink-light)">MK</div>
+        <div class="rc-tag ai-safety-tag">AI Safety</div>
+      </div>
+      <h3 class="rc-name">Mala Kumar</h3>
+      <p class="rc-role">Executive Director, Humane Intelligence</p>
+      <p class="rc-region">🌎 USA</p>
+      <p class="rc-bio">Leads Humane Intelligence, a nonprofit advancing participatory AI evaluation and open-source red-teaming tools. Formerly Director of Tech for Social Good at GitHub, Senior Advisor at WHO, and Director of Programme Management, AI Safety at MLCommons. Author of two novels. 15+ year career in technology for global social good.</p>
+      <div class="rc-tags"><span>AI Evaluation</span><span>Red Teaming</span><span>Open Source</span><span>Social Good</span></div>
+      <a href="https://humane-intelligence.org" target="_blank" class="rc-link">humane-intelligence.org →</a>
+    </article>
+
+    <article class="researcher-card" data-area="governance" data-region="usa" data-search="serena oduro data society research institute policy manager AI safety institute consortium state policy black feminist poetry greenlining sociotechnical">
+      <div class="rc-header">
+        <div class="rc-avatar" style="background:var(--c-purple-light)">SO</div>
+        <div class="rc-tag governance-tag">AI Governance</div>
+      </div>
+      <h3 class="rc-name">Serena Oduro</h3>
+      <p class="rc-role">Policy Manager, Data & Society Research Institute</p>
+      <p class="rc-region">🌎 USA</p>
+      <p class="rc-bio">AI policy expert leading state-level policy engagement at Data & Society. Founding member of the US AI Safety Institute Consortium, where she advocated for a sociotechnical approach to AI safety. HUMAN Residency Fellow — her poetry collection centres a Black feminist analysis of AI. Previously tech equity fellow at The Greenlining Institute.</p>
+      <div class="rc-tags"><span>AI Policy</span><span>State Governance</span><span>Black Feminist Analysis</span></div>
+    </article>
+
+    <article class="researcher-card" data-area="ai-safety" data-region="usa" data-search="anagha late BASE GovAI Coalition cybersecurity AI safety evaluation privacy engineering technology policy municipalities UC Berkeley WPI procurement">
+      <div class="rc-header">
+        <div class="rc-avatar" style="background:var(--c-teal-light);color:var(--c-teal)">AL</div>
+        <div class="rc-tag ai-safety-tag">AI Safety</div>
+      </div>
+      <h3 class="rc-name">Anagha Late</h3>
+      <p class="rc-role">Director of Strategy, BASE / AI Governance Consultant, GovAI Coalition</p>
+      <p class="rc-region">🌎 USA</p>
+      <p class="rc-bio">Public-interest cybersecurity and technology policy researcher specialising in AI safety evaluation, privacy engineering, and AI governance for the public sector. Works with municipalities across the US through the GovAI Coalition on AI procurement, digital security, and risk management. MSc Information & Cybersecurity, UC Berkeley.</p>
+      <div class="rc-tags"><span>AI Safety Evaluation</span><span>Cybersecurity</span><span>Public Sector AI</span></div>
+    </article>
+
+    <article class="researcher-card" data-area="ai-safety" data-region="uk" data-search="elfredah kevin-alerechi journotech newsassist AI journalist UK safety governance security 300 professionals 21 countries Nigeria diaspora inclusive">
+      <div class="rc-header">
+        <div class="rc-avatar" style="background:var(--c-gold-light);color:var(--c-gold)">EK</div>
+        <div class="rc-tag ai-safety-tag">AI Safety</div>
+      </div>
+      <h3 class="rc-name">Elfredah Kevin-Alerechi</h3>
+      <p class="rc-role">Chief Innovation Officer, Journotech / Founder, NewsAssist AI</p>
+      <p class="rc-region">🇬🇧 UK</p>
+      <p class="rc-bio">AI innovator, journalist, and ethical technology leader based in the UK. Leads responsible AI innovation, policy development, and ethical deployment at Journotech. Has trained 300+ professionals across 21 countries on responsible AI use, governance frameworks, and secure AI deployment.</p>
+      <div class="rc-tags"><span>AI Safety</span><span>AI Governance</span><span>Journalism & AI</span></div>
+    </article>
+
+    <article class="researcher-card" data-area="governance" data-region="usa" data-search="gabrielle hibbert Pennsylvania AI policy lead New America fellow generative AI nutrition labels governance transparency Kapor Bipartisan Policy Heller">
+      <div class="rc-header">
+        <div class="rc-avatar" style="background:var(--c-pink-light)">GH</div>
+        <div class="rc-tag governance-tag">AI Governance</div>
+      </div>
+      <h3 class="rc-name">Gabrielle Hibbert</h3>
+      <p class="rc-role">AI Policy Lead, Commonwealth of Pennsylvania / Non-Resident Fellow, New America</p>
+      <p class="rc-region">🌎 USA</p>
+      <p class="rc-bio">Develops and writes AI governance solutions for the Commonwealth of Pennsylvania, with expertise in risk, security, and data privacy. Published research on AI nutrition labels for generative AI tools at New America. Previously at Rubrik, Kapor Center, and Bipartisan Policy Center.</p>
+      <div class="rc-tags"><span>AI Policy</span><span>State Governance</span><span>AI Transparency</span></div>
+    </article>
+
+    <article class="researcher-card" data-area="governance" data-region="usa" data-search="amari cowan US Census Bureau emerging technology fellow AI governance federal government Meta TikTok FERC first AI officer experimental policy framework">
+      <div class="rc-header">
+        <div class="rc-avatar" style="background:var(--c-purple-light)">AC</div>
+        <div class="rc-tag governance-tag">AI Governance</div>
+      </div>
+      <h3 class="rc-name">Amari Cowan</h3>
+      <p class="rc-role">Emerging Technology Fellow, US Census Bureau</p>
+      <p class="rc-region">🌎 USA</p>
+      <p class="rc-bio">AI policy and governance professional at the intersection of AI and public policy. Served as the first AI Officer at the Federal Energy Regulatory Commission. Previously worked on global technology governance at Meta and TikTok. Now develops experimental policy frameworks and advises federal leadership on ethical AI governance at scale.</p>
+      <div class="rc-tags"><span>Federal AI Policy</span><span>AI Governance</span><span>Emerging Tech</span></div>
+    </article>
+
+    <article class="researcher-card" data-area="governance" data-region="africa nigeria international" data-search="titi akinsanmi Google global policy generative AI hardware trustworthy technology digital rights safety Nigeria Africa international governance inclusion">
+      <div class="rc-header">
+        <div class="rc-avatar" style="background:var(--c-teal-light);color:var(--c-teal)">TA</div>
+        <div class="rc-tag governance-tag">AI Governance</div>
+      </div>
+      <h3 class="rc-name">Titi Akinsanmi</h3>
+      <p class="rc-role">Global Policy Team Lead, Google</p>
+      <p class="rc-region">🌍 Nigeria / International</p>
+      <p class="rc-bio">Shapes policies for the responsible use and access to generative AI products and hardware platforms at Google. Focuses on trustworthy technologies that respect individual and societal rights. Extensive expertise in government consultations, digital rights advocacy, and safety considerations in the global digital economy.</p>
+      <div class="rc-tags"><span>AI Policy</span><span>Generative AI</span><span>Digital Rights</span><span>Africa</span></div>
+    </article>
+
+    <article class="researcher-card" data-area="governance" data-region="usa" data-search="tobi olaiya Salesforce ethical use policy AI acceptable use trust safety Twitter algorithmic transparency recommendations explainer MPP Maryland Nigeria">
+      <div class="rc-header">
+        <div class="rc-avatar" style="background:var(--c-gold-light);color:var(--c-gold)">TO</div>
+        <div class="rc-tag governance-tag">AI Governance</div>
+      </div>
+      <h3 class="rc-name">Tobi Olaiya</h3>
+      <p class="rc-role">Senior Manager, Ethical Use Policy, Salesforce</p>
+      <p class="rc-region">🌎 USA</p>
+      <p class="rc-bio">Leads operationalisation of Salesforce's AI acceptable use policies, specialising in AI governance, product safety, and cross-functional policy. Previously at Twitter, where she built the platform's first recommendations explainer, advancing algorithmic transparency and user choice. MPP, University of Maryland.</p>
+      <div class="rc-tags"><span>Ethical Use Policy</span><span>Algorithmic Transparency</span><span>Trust & Safety</span></div>
+    </article>
+
+    <article class="researcher-card" data-area="governance" data-region="international" data-search="alisar mustafa Duco AI policy head Meta Federation American Scientists Census Bureau adversarial testing regulatory compliance newsletter language safety datasets enterprise">
+      <div class="rc-header">
+        <div class="rc-avatar" style="background:var(--c-pink-light)">AM</div>
+        <div class="rc-tag governance-tag">AI Governance</div>
+      </div>
+      <h3 class="rc-name">Alisar Mustafa</h3>
+      <p class="rc-role">Head of AI Policy, Duco</p>
+      <p class="rc-region">🌐 International</p>
+      <p class="rc-bio">Leads AI safety and governance for enterprise clients at Duco. Specialises in model fine-tuning, adversarial testing, and regulatory compliance. Previously at Meta, the Federation of American Scientists, and the US Census Bureau. Researches language-specific gaps in AI safety training datasets and publishes a widely-read AI policy newsletter.</p>
+      <div class="rc-tags"><span>AI Safety</span><span>Regulatory Compliance</span><span>AI Policy</span></div>
+    </article>
+
+    <article class="researcher-card" data-area="ai-safety" data-region="usa" data-search="krystal jackson Center Long-Term Cybersecurity BASE research director Frontier Model Forum CISA AI capabilities analyst CSET public interest technology census bureau security global">
+      <div class="rc-header">
+        <div class="rc-avatar" style="background:var(--c-purple-light)">KJ</div>
+        <div class="rc-tag ai-safety-tag">AI Safety</div>
+      </div>
+      <h3 class="rc-name">Krystal Jackson</h3>
+      <p class="rc-role">Non-Resident Fellow, Center for Long-Term Cybersecurity / Research Director, BASE</p>
+      <p class="rc-region">🌎 USA</p>
+      <p class="rc-bio">Researches global security implications of artificial intelligence. Previously Research Associate at the Frontier Model Forum, AI Capabilities Analyst at CISA, and Junior AI Fellow at CSET. Public Interest Technology Fellow at the US Census Bureau. Research Director at BASE.</p>
+      <div class="rc-tags"><span>AI Security</span><span>Cybersecurity</span><span>AI Safety</span></div>
+    </article>
+
+    <article class="researcher-card" data-area="governance" data-region="international" data-search="latisha harry portulans institute AI governance digital rights policy research OpenAI Stanford HAI CIVICUS Global Witness ILO red teaming surveillance misinformation cross-national">
+      <div class="rc-header">
+        <div class="rc-avatar" style="background:var(--c-teal-light);color:var(--c-teal)">LH</div>
+        <div class="rc-tag governance-tag">AI Governance</div>
+      </div>
+      <h3 class="rc-name">Latisha Harry</h3>
+      <p class="rc-role">Senior Fellow, Portulans Institute</p>
+      <p class="rc-region">🌐 International</p>
+      <p class="rc-bio">Independent research and policy consultant specialising in AI governance, digital rights, and technology-driven institutional innovation. Has worked with OpenAI, Stanford HAI, CIVICUS, Global Witness, and the International Labour Organization. Work spans AI risk assessment, red-teaming advanced AI systems, and cross-national policy datasets for policymakers.</p>
+      <div class="rc-tags"><span>AI Governance</span><span>Digital Rights</span><span>Red Teaming</span></div>
+    </article>
+
+  </div>
+</div>
+<section class="section cta-section" id="submit">
+  <div class="cta-inner">
+    <div class="cta-text">
+      <p class="section-eyebrow">Join the Directory</p>
+      <h2>Submit your profile</h2>
+      <p>Are you a woman of colour working in AI safety, AI governance, or algorithmic justice? We'd love to include you. It takes about 10 minutes and is completely free.</p>
+      <p style="font-size:0.88rem;color:var(--c-light);margin-bottom:1.5rem">You can review your profile before anything is published, and update or remove it at any time.</p>
+      <a href="/submit/" class="btn-primary">Submit Your Profile &rarr;</a>
+    </div>
+    <div class="cta-quote">
+      <blockquote>
+        "There is no established website that specialises in this area — creating a need for a platform like this, especially outside the USA."
+        <cite>— DataBias original proposal, 2022</cite>
+      </blockquote>
+    </div>
+  </div>
+</section>
+ 
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-logo">Data<span>Bias</span></div>
+    <p class="footer-tagline">Founded by Nafisah Animashaun &middot; A free global directory of women of colour working in AI safety, governance &amp; algorithmic justice.</p>
+    <div class="footer-links">
+      <a href="/catalogue/">Catalogue</a>
+      <a href="/resources/">Resources</a>
+      <a href="/about/">About</a>
+      <a href="/founder/">Founder</a>
+      <a href="/news/">News</a>
+      <a href="mailto:hello@databias.org">Contact</a>
+    </div>
+    <p class="footer-copy">Built with the Black Women Best Framework &middot; databias.org &middot; 2026</p>
+  </div>
+</footer>
+ 
+<script>
+  const ham = document.getElementById('hamburger');
+  const mob = document.getElementById('mobileNav');
+  ham.addEventListener('click', () => mob.classList.toggle('open'));
+ 
+  function filterCards(area, btn) {
+    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    document.querySelectorAll('.researcher-card').forEach(card => {
+      if (area === 'all') { card.style.display = ''; return; }
+      const cardArea = card.dataset.area || '';
+      const cardRegion = card.dataset.region || '';
+      const match = cardArea === area || cardRegion.includes(area);
+      card.style.display = match ? '' : 'none';
+    });
+  }
+ 
+  function searchCards(val) {
+    const q = val.toLowerCase();
+    document.querySelectorAll('.researcher-card').forEach(card => {
+      const text = (card.dataset.search || '') + card.textContent.toLowerCase();
+      card.style.display = text.includes(q) ? '' : 'none';
+    });
+  }
+</script>
+</body>
+</html>
